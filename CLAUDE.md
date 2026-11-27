@@ -19,6 +19,7 @@ As files are added, keep them at the top level or in simple folders (for example
 
 1. Every page must be responsive and work on desktop, tablet, and phone.
 2. Users can toggle between a light and a dark theme. The default is the light theme.
+3. Text must stay easy to read, with good contrast, in both the light and the dark theme.
 
 ## Rules for Claude
 
