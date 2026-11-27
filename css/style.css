@@ -10,6 +10,9 @@
   --border: #d4d4d8;
   --link: #1d4ed8;        /* ~6.7:1 contrast on --bg */
   --focus: #1d4ed8;
+  --input-border: #71717a; /* visible box edges (~4.8:1) */
+  --error: #b91c1c;        /* ~6.5:1 contrast on --bg */
+  --button-primary-text: #ffffff;
 }
 
 :root[data-theme="dark"] {
@@ -20,6 +23,9 @@
   --border: #3f3f46;
   --link: #93c5fd;        /* ~9:1 contrast on --bg */
   --focus: #93c5fd;
+  --input-border: #a1a1aa;
+  --error: #fca5a5;        /* ~9:1 contrast on --bg */
+  --button-primary-text: #18181b;
 }
 
 *,
@@ -152,16 +158,111 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-.placeholder {
-  padding: 1.5rem;
-  background: var(--surface);
-  border: 1px dashed var(--border);
-  border-radius: 0.5rem;
+/* Input boxes: 1 column on phones, 2 columns on wider screens */
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 36rem) {
+  .field-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.field .unit {
+  font-weight: 400;
   color: var(--text-muted);
 }
 
-.placeholder p {
+.field input {
+  width: 100%;
+  font: inherit;
+  padding: 0.5rem 0.75rem;
+  min-height: 2.75rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--input-border);
+  border-radius: 0.375rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+
+.button {
+  font: inherit;
+  padding: 0.5rem 1.25rem;
+  min-height: 2.75rem;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--input-border);
+  border-radius: 0.375rem;
+  cursor: pointer;
+}
+
+.button-primary {
+  color: var(--button-primary-text);
+  background: var(--link);
+  border-color: var(--link);
+  font-weight: 600;
+}
+
+.error-message {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+  color: var(--error);
+  border: 1px solid var(--error);
+  border-radius: 0.375rem;
+}
+
+.results {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+}
+
+.results h2 {
+  font-size: 1.25rem;
+  margin: 0 0 1rem;
+}
+
+.result + .result {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.result-value {
   margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+/* Long formulas can wrap on narrow phones instead of overflowing */
+.result-steps {
+  margin: 0.25rem 0 0;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.note {
+  margin: 1rem 0 0;
+  font-size: 0.875rem;
+  color: var(--text-muted);
 }
 
 @media (min-width: 48rem) {

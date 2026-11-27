@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ohm's Law Calculator — EE Tool Portal</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/theme.js"></script>
+  <script src="../js/ohms-law.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="site-name" href="../index.html">EE Tool Portal</a>
+      <button class="theme-toggle" type="button" aria-pressed="false">Dark theme</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">&larr; Back to all tools</a>
+    <h1>Ohm's Law Calculator</h1>
+    <p class="intro">Enter any <strong>two</strong> values, then press Calculate. The tool works out the other two and shows each step.</p>
+
+    <form id="ohms-form" class="tool-form" novalidate>
+      <div class="field-grid">
+        <div class="field">
+          <label for="voltage">Voltage (V) <span class="unit">in volts</span></label>
+          <input id="voltage" name="voltage" type="number" step="any" min="0" inputmode="decimal" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="current">Current (I) <span class="unit">in amps, A</span></label>
+          <input id="current" name="current" type="number" step="any" min="0" inputmode="decimal" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="resistance">Resistance (R) <span class="unit">in ohms, Ω</span></label>
+          <input id="resistance" name="resistance" type="number" step="any" min="0" inputmode="decimal" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="power">Power (P) <span class="unit">in watts, W</span></label>
+          <input id="power" name="power" type="number" step="any" min="0" inputmode="decimal" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="button button-primary">Calculate</button>
+        <button type="reset" class="button">Clear</button>
+      </div>
+    </form>
+
+    <!-- role="alert" and aria-live: screen readers announce errors and results when they appear -->
+    <div id="message" class="error-message" role="alert" hidden></div>
+
+    <section id="results" class="results" aria-live="polite" hidden>
+      <h2>Results</h2>
+      <div id="results-list"></div>
+      <p class="note">Answers are rounded to 4 significant figures. “≈” means the value was rounded.</p>
+    </section>
+  </main>
+</body>
+</html>
