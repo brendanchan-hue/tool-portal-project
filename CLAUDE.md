@@ -8,12 +8,14 @@
 
 ## Project Structure
 
-The project is nearly empty for now.
-
+- `index.html` – portal homepage with the tool cards
+- `tools/` – one HTML page per tool (`tool-1.html` is a placeholder for now)
+- `css/style.css` – shared styles and the light/dark colours
+- `js/theme.js` – light/dark theme toggle, loaded on every page
 - `README.md` – short project readme
 - `CLAUDE.md` – this file (guidance for Claude)
 
-As files are added, keep them at the top level or in simple folders (for example `css/`, `js/`, `images/`), and update this section.
+As files are added, keep them in these simple folders, and update this section.
 
 ## Key Requirements
 
@@ -36,8 +38,8 @@ A web portal where **students** try out small **Electrical Engineering** tools.
 ### Phases
 
 **Phase 1: portal + Ohm's law calculator**
-- Homepage with one tool card.
-- Ohm's law calculator: the student enters any two of voltage (V), current (A), resistance (Ω) and power (W). The tool shows the other two, with worked steps (e.g. `V = I × R = 2 A × 5 Ω = 10 V`).
+- [x] Portal: homepage, shared header with theme toggle, and a placeholder "Tool 1 — coming soon" card whose page opens and returns via the portal navigation. Simple neutral styling; visual design to be chosen later.
+- [ ] Ohm's law calculator (replaces the placeholder card): the student enters any two of voltage (V), current (A), resistance (Ω) and power (W). The tool shows the other two, with worked steps (e.g. `V = I × R = 2 A × 5 Ω = 10 V`).
 - Clear error messages: wrong number of values, negative values, division by zero.
 - Base units only, answers rounded to 4 significant figures, placeholder name "EE Tool Portal".
 
